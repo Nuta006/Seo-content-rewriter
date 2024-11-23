@@ -1,0 +1,121 @@
+Project: AI-powered Content Rewrite for SEO Website
+
+Project Overview
+This website provides SEO content scoring and improvement services powered by AI. The goal is to help users optimize their content to achieve better rankings in search engines like Google and Bing. The website consists of four main pages: Homepage, Content SEO Score, Rewrite SEO, and About Us.
+
+1. Homepage
+URL: /
+Purpose:
+The homepage serves as the entry point to the website, providing a general overview of the services offered, and easy navigation to the main features such as Content SEO Score, Rewrite SEO, and About Us. The goal is to attract users, introduce the services, and create opportunities for conversions.
+
+Key Features:
+Introduction to Services:
+
+A headline that grabs attention, e.g., "Optimize Your Content with AI for Better SEO Results."
+A brief description of the services offered: SEO Scoring, SEO Rewrite.
+Links to Main Services:
+
+Link to Content SEO Score page: "Check Your SEO Score Now"
+Link to Rewrite SEO page: "Optimize Your SEO Content"
+Link to About Us page: "Learn About Us"
+User-Friendly Interface:
+
+A clean layout with intuitive navigation to guide users easily through the website.
+Simple illustrations/icons to represent each service.
+Call-to-Action (CTA):
+
+Prominent CTA buttons guiding users to the key service pages.
+User Testimonials/Reviews:
+
+Display a few testimonials or case studies (if available) to build trust and demonstrate the effectiveness of the services.
+2. Content SEO Score
+URL: /seo-score
+Purpose:
+This page allows users to input their content and receive an SEO score based on various optimization criteria. The page provides detailed suggestions on how to improve the content for SEO.
+
+Key Features:
+Content Input Form:
+
+Users can paste or type their content into a text box.
+Support for multiple languages (e.g., English, Vietnamese).
+Automated SEO Scoring:
+
+Once the content is submitted, the system will automatically analyze the content and provide an SEO score ranging from 0 to 100.
+Display a breakdown of the SEO score, such as keyword density, content length, heading structure, readability, image optimization, etc.
+Detailed SEO Improvement Suggestions:
+
+Provide a list of actionable recommendations to help users improve their content. For example: "Add keyword X in the introduction," "Reduce long sentences," "Add subheadings to improve structure."
+Results Display:
+
+Show a detailed chart or table that breaks down important SEO factors like keyword density, title optimization, internal linking, etc.
+Save and Export Results:
+
+Users can save their SEO report or export it as a PDF for further reference.
+3. Rewrite SEO
+URL: /rewrite-seo
+Purpose:
+This page helps users improve their content by rewriting it using AI to optimize for SEO.
+
+Key Features:
+Content Submission Form:
+
+Users can enter text or upload a file (e.g., .txt, .docx) containing the content they wish to rewrite.
+AI-Powered Content Rewrite:
+
+The AI will automatically analyze and rewrite the content to make it more SEO-friendly, adjusting keyword density, sentence structure, readability, and other SEO factors.
+SEO Keyword Suggestions:
+
+The system will suggest additional keywords and phrases related to the content that users can include to improve SEO.
+Compare Original and Rewritten Content:
+
+Show both the original content and the rewritten content side-by-side for users to compare improvements.
+Download or Copy Results:
+
+Users can download the rewritten content or copy it to their clipboard directly.
+4. About Us
+URL: /about-us
+Purpose:
+The About Us page introduces the team, the mission of the website, and the values behind the services. This page helps users understand who is behind the service and build trust.
+
+Key Features:
+Team Introduction:
+
+Information about the team behind the website: History, vision, and core values.
+Service Mission:
+
+Describe the mission of the website: To help users improve their SEO through advanced AI tools that make content optimization easier and more effective.
+Commitment to Quality:
+
+Explain the website's commitment to quality, data security, and customer satisfaction.
+Contact Information:
+
+Provide contact details, such as email, phone number, and social media links.
+Technical Requirements
+Responsive Design:
+The website must be fully responsive, providing an optimal user experience on all devices (desktop, mobile, tablet).
+
+SEO-Friendly Architecture:
+The site must have a well-structured HTML code, with proper meta tags, titles, and descriptions to be SEO-friendly.
+
+Fast Loading Speed:
+The website should load in under 3 seconds to ensure a good user experience and improve SEO rankings.
+
+Data Security & GDPR Compliance:
+The site must comply with GDPR and other relevant data protection regulations, ensuring the privacy and security of user data.
+
+Development Timeline & Milestones
+Phase 1: Requirements Analysis and UI/UX Design (1 month)
+
+Finalize user requirements.
+Design wireframes and UI/UX for all pages.
+Phase 2: Backend Development and AI Integration (2 months)
+
+Develop AI-based content analysis and rewriting system.
+Implement the SEO scoring system and content improvement suggestions.
+Phase 3: Testing and Quality Assurance (1 month)
+
+Test the features for compatibility across devices and browsers.
+Gather feedback from beta users and make necessary adjustments.
+Phase 4: Official Launch
+
+Launch the website and initiate marketing campaigns.

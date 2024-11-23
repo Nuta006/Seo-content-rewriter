@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewrite Your Content - AI SEO Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* CSS cho spinner */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: none; /* Ẩn spinner ban đầu */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">AI SEO Tools</div>
+            <div class="space-x-6">
+                <a href="/" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">Home</a>
+                <a href="seo-score.html" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">Check Your SEO Score</a>
+                <a href="rewrite-seo.html" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">Rewrite Your Content</a>
+                <a href="about-us.html" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">About Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <h1 class="text-3xl font-bold mb-6">Rewrite Your Content</h1>
+        <form id="rewrite-form" class="bg-white rounded-lg shadow-md p-8">
+            <textarea id="content-input" rows="10" class="w-full border border-gray-300 rounded-lg p-4" placeholder="Paste your content here..."></textarea>
+            <button id="rewrite-button" type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">Rewrite Content</button>
+            <div id="loading" class="mt-2 text-blue-600 hidden">
+                <div class="spinner"></div>
+                <span>Loading...</span>
+            </div>
+        </form>
+        <div id="rewritten-content" class="mt-6 hidden">
+            <h2 class="text-2xl font-semibold">Rewritten Content:</h2>
+            <p id="rewritten-text" class="bg-gray-100 p-4 border border-gray-300 rounded-lg"></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 AI SEO Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('rewrite-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const content = document.getElementById('content-input').value;
+            const rewriteButton = document.getElementById('rewrite-button');
+            const loadingIndicator = document.getElementById('loading');
+
+            // Disable the button and show loading indicator
+            rewriteButton.disabled = true;
+            loadingIndicator.classList.remove('hidden');
+
+            // Gọi API để lấy nội dung đã được viết lại
+            const apiKey = 'AIzaSyCHYg2z-_c0eH4wA-6SOAR7oHyGGOP1Hzs'; // Thay thế bng cách lấy từ biến môi trường nếu cần
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${apiKey}`;
+
+            const requestBody = {
+                contents: [
+                    {
+                        role: "user",
+                        parts: [
+                            {
+                                text: content
+                            }
+                        ]
+                    }
+                ],
+                generationConfig: {
+                    temperature: 1,
+                    topK: 40,
+                    topP: 0.95,
+                    maxOutputTokens: 8192,
+                    responseMimeType: "text/plain"
+                }
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+
+                // Kiểm tra xem có dữ liệu trả về không
+                if (data.candidates && data.candidates.length > 0) {
+                    const geminiResponseText = data.candidates[0].content.parts[0]?.text || "No response text available."; // Truy cập vào trường text trong parts
+                    
+                    // Hiển thị nội dung đã viết lại
+                    document.getElementById('rewritten-text').innerText = geminiResponseText; // Hiển thị phản hồi từ Gemini
+                } else {
+                    document.getElementById('rewritten-text').innerText = "No candidates returned.";
+                }
+
+                document.getElementById('rewritten-content').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi gọi API. Vui lòng thử lại sau.');
+            } finally {
+                // Enable the button and hide loading indicator
+                rewriteButton.disabled = false;
+                loadingIndicator.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content SEO Score - AI SEO Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-4">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-xl font-bold text-blue-600">AI SEO Tools</div>
+            <div class="space-x-6">
+                <a href="/" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">Home</a>
+                <a href="/seo-score" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">Check Your SEO Score</a>
+                <a href="/rewrite-seo" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">Rewrite Your Content</a>
+                <a href="/about-us" class="text-gray-700 hover:text-blue-500 transition-colors duration-300">About Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <h1 class="text-3xl font-bold mb-6">Check Your Content SEO Score</h1>
+        <form id="seo-score-form" class="bg-white rounded-lg shadow-md p-8">
+            <textarea id="content-input" rows="10" class="w-full border border-gray-300 rounded-lg p-4" placeholder="Paste your content here..."></textarea>
+            <button type="submit" class="mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300">Get SEO Score</button>
+        </form>
+        <div id="results" class="mt-6 hidden">
+            <h2 class="text-2xl font-semibold">SEO Score: <span id="seo-score"></span></h2>
+            <h3 class="text-xl font-semibold mt-4">Suggestions:</h3>
+            <ul id="suggestions" class="list-disc list-inside text-gray-600"></ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 AI SEO Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('seo-score-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const content = document.getElementById('content-input').value;
+            // Simulate SEO scoring logic
+            const score = Math.floor(Math.random() * 101); // Random score for demonstration
+            const suggestions = [
+                "Add more keywords in the introduction.",
+                "Shorten long sentences.",
+                "Use subheadings to improve structure."
+            ];
+            document.getElementById('seo-score').innerText = score;
+            const suggestionsList = document.getElementById('suggestions');
+            suggestionsList.innerHTML = '';
+            suggestions.forEach(suggestion => {
+                const li = document.createElement('li');
+                li.innerText = suggestion;
+                suggestionsList.appendChild(li);
+            });
+            document.getElementById('results').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
